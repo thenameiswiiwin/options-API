@@ -1,0 +1,20 @@
+{
+  "name": "options-API",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.2.32",
+    "vue": "^3.2.32",
+    "vue-router": "4",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.1",
+    "vite": "^2.9.4"
+  },
+  "peerDependencies": {
+    "@vue/compiler-sfc": "^3.2.32"
+  }
+}
