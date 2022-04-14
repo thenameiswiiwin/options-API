@@ -59,7 +59,17 @@ Format: `item in items`
 
 ## Computed Property
 
+Computed property use for encapsulating data transformations and manipulations, that stay synched with the data that it reference.
+
 All computed properties are going to be functions, that take no arguments, and going to be determined by whatever they return.
+
+```
+When to use Methods property and when to use Computed Property?
+
+Methods === when you need to change data.
+
+Computed === when you need to change the presentation of existing data.
+```
 
 ```JavaScript
 template: `
@@ -118,6 +128,8 @@ A subset of something black binding.
 
 `v-bind` directive --- allow you to execute a JavaScript expression inside of a class.
 
+`Can use v-bind with any attributes you like`
+
 ```HTML
 <!DOCTYPE html>
 <html lang="en">
@@ -165,4 +177,86 @@ Use `v-for` directive to loop through the `numbers` array in the `data` property
 
 Use `v-bind` to bind the the class, take in the `getClass()` method, that take in `number` which is each item in the array.
 
-The `getClass()` method takes in number, then return `isEven()` using tenery operator check to see if the number is odd, then it is blue, else it is red.
+The `getClass()` method takes in number, then return `isEven()` method which return all even numbers.
+
+Using tenery operator check to see if the number is even, then the color is blue, else it is red.
+
+## Input Validation
+
+```JavaScript
+template: `
+    <input
+        v-bind:value='value'
+        v-on:input="input"
+    />
+
+    <div class="red">
+        {{ error }}
+    </div>
+`,
+
+data() {
+    value: 'user'
+}
+
+methods: {
+    input($event) {
+        this.value = $event.target.value
+    }
+},
+
+computed: {
+    error() {
+        if (this.value.length < 5) {
+            return 'Must be greater than 5'
+        }
+    }
+},
+```
+
+## V-Model
+
+Create a two-way binding on a form input element for a component. Shorthand for v-bind and v-on in a form.
+
+Limited to:
+`<input>`
+`<select>`
+`<textarea>`
+
+V-model going to do two things:
+1. It's going to bind to a data variable
+2. It's going to listen for the input
+
+```JavaScript
+template: `
+    <input
+        type="radio"
+        v-model='radioValue'
+        value="a"
+    />
+    <input
+        type="radio"
+        v-model='radioValue'
+        value="b"
+    />
+    {{ radioValue }}
+
+
+    <input
+        type="checkbox"
+        v-model='checkboxValue'
+        value="1"
+    />
+    <input
+        type="checkbox"
+        v-model='checkboxValue'
+        value="2"
+    />
+    {{ checkboxValue }}
+`,
+
+data() {
+    radioValue: 'a',
+    checkboxValue: ['1']
+}
+```
