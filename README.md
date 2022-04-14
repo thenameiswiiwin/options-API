@@ -47,10 +47,9 @@ Take in 2 expressions:
 1. A variable name for each item you are looping through
 2. An array, to loop over
 
-> Format
-> item in items
+Format: `item in items`
 
-> Example:
+### Example:
 
 ```JavaScript
 <div v-for="number in numbers">
