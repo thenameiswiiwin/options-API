@@ -24,24 +24,25 @@ Allows us to separate our code into separate files.
 
 ## Event Handling
 
-`v-on`
+### v-on
 
-> `v-on:click="` name of method `"`
+`v-on:click="` name of method `"`
 
 ## Control Flows
 
-`Directives`
+Directives:
 
-> v-if
-> v-else
+`v-if`
+
+`v-else`
 
 V-if and V-else, the two tags must be directly adjacent inside the template property.
 
 ## For Loop Directive
 
-`v-for`
+### v-for
 
-> Take in 2 expressions
+Take in 2 expressions:
 
 1. A variable name for each item you are looping through
 2. An array, to loop over
