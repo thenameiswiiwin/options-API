@@ -111,3 +111,58 @@ template: `
 ```
 
 Use `v-for` directive to loop over the `evenList` in the `computed` property, and render all of the item in the array.
+
+## Class Bindings
+
+A subset of something black binding.
+
+`v-bind` directive --- allow you to execute a JavaScript expression inside of a class.
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="app"></div>
+
+    <script type="module" src="/index.js"></script>
+
+    <style>
+      .blue {
+        color: blue;
+      }
+      .red {
+        color: red;
+      }
+    </style>
+  </body>
+</html>
+```
+
+```JavaScript
+template: `
+    <div v-for="number in numbers" v-bind:class="getClass(number)">
+      <div>
+        {{ number }}
+      </div>
+    </div>
+  `,
+data() {
+    return {
+      numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    };
+},
+methods: {
+    isEven(number) {
+      return number % 2 === 0;
+    },
+    getClass(number) {
+      return this.isEven(number) ? 'blue' : 'red';
+    },
+},
+```
+
+Use `v-for` directive to loop through the `numbers` array in the `data` property, and then rendered each number within the array.
+
+Use `v-bind` to bind the the class, take in the `getClass()` method, that take in `number` which is each item in the array.
+
+The `getClass()` method takes in number, then return `isEven()` using tenery operator check to see if the number is odd, then it is blue, else it is red.
