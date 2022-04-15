@@ -260,3 +260,58 @@ data() {
     checkboxValue: ['1']
 }
 ```
+
+## Component
+
+A component is an object with a number of options (data, methods, computed).
+
+```JavaScript
+const Hello = {
+    template: `
+        <p>Hello!</p>
+    `
+}
+
+const vue.createApp({
+    components: {
+        Hello
+    },
+
+    template: `
+        <Hello />
+    `
+})
+```
+
+## Component Props
+
+`props` is short for properties.
+
+props get pass down from the parent component to the child component.
+
+```JavaScript
+<!-- Parent Component -->
+const vue.createApp({
+    components: {
+        Hello
+    },
+
+    template: `
+        <Hello greeting="Hello" />
+    `
+})
+
+<!-- Child Component -->
+const Hello = {
+    props: ['greeting'],
+    template: `
+        <p>{{ greeting }}!</p>
+    `
+}
+```
+
+## Child - Parent Communication with Events
+
+Parent -> Child === using `Props`
+
+Child <- Parent === using `$emit('<name of event of your choice>', payload argument)`, emmit an event from the child component, and listen from the parent component.
